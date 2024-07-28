@@ -7,8 +7,10 @@ app.listen(port,()=>{
     console.log(`App is listening on port ${port}`)
 })
 
-app.get("/",(req,res)=>{
-    console.log("You requested root path")
+app.get("/:username/:age",(req,res)=>{
+    console.log("Hello, I'm path",req.params)
+    let {username, age} = req.params
+    res.send(`<h1>Welcome to the page of @${username}.</h1>`)
 })
 app.get("/apple",(req,res)=>{
     console.log("You requested apple path")
